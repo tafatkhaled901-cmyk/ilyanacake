@@ -599,8 +599,15 @@ const CONFIG = {
    cat : layer | anniv | mariage | tartes  — la 1re photo est la couverture */
 const MODELS=[
   {cat:"layer", tag:"Favorita", title:"Vintage Cake Lazos & Corazón", desc:"Crema blanca, manga pastelera vintage, lazos de raso negros y corazón dorado. Elegante y muy tendencia.", photos:["noeuds-coeur-2","noeuds-coeur-3","noeuds-coeur-boite"]},
+  {cat:"layer", tag:"San Valentín", title:"Heart Cake «Ti Amo»", desc:"Tarta en forma de corazón, rosetones rojo pasión y mensaje personalizado.", photos:["ti-amo"]},
+  {cat:"layer", tag:"Vintage", title:"Corazón Rosa con Lazo", desc:"Crema rosa, corazoncitos blancos y gran lazo de raso. Dulce y romántica.", photos:["rosa-lazo"]},
   {cat:"anniv", tag:"Cumpleaños", title:"Jardín Florido Happy Birthday", desc:"Flores de fondant hechas a mano, medallón de encaje y nombre personalizado.", photos:["anniv-fleurs"]},
-  {cat:"mariage", tag:"Cake Design", title:"Rosas Silvestres 2 pisos", desc:"Bordes rasgados efecto papel, rosas y hojas modeladas a mano.", photos:["roses-video-1","roses-video-2"]}
+  {cat:"anniv", tag:"Fútbol", title:"Tarta de Fútbol Personalizada", desc:"El escudo de su equipo, balón de fondant y su nombre. Ideal para los fans del fútbol.", photos:["futbol-1","futbol-2"]},
+  {cat:"anniv", tag:"Fútbol", title:"Heart Cake de su Club", desc:"Tarta corazón con los colores y el escudo de su club, y mensaje personalizado.", photos:["mca-corazon"]},
+  {cat:"mariage", tag:"Cake Design", title:"Rosas Silvestres 2 pisos", desc:"Bordes rasgados efecto papel, rosas y hojas modeladas a mano.", photos:["roses-original","roses-video-2"]},
+  {cat:"mariage", tag:"Boda · Pedida", title:"Corazón Blanco con Perlas", desc:"Crema blanca, flores en manga pastelera y perlas comestibles. Pura elegancia.", photos:["perlas"]},
+  {cat:"tartes", tag:"Más vendido", title:"Tartaletas de Limón y Merengue", desc:"Masa sablé, crema de limón y merengue flameado con soplete.", photos:["citron-meringue"]},
+  {cat:"tartes", tag:"Fruta fresca", title:"Tartaletas de Manzana", desc:"Masa sablé crujiente y finas láminas de manzana caramelizadas al horno.", photos:["tartaletas-manzana"]}
 ];
 const img=n=>`img/${n}.jpg`;
 
@@ -649,7 +656,7 @@ let tx=null; lb.addEventListener("touchstart",e=>tx=e.touches[0].clientX,{passiv
 lb.addEventListener("touchend",e=>{if(tx===null)return; const dx=e.changedTouches[0].clientX-tx; if(Math.abs(dx)>45) step(dx<0?1:-1); tx=null});
 
 /* Hero */
-document.getElementById("heroCake").innerHTML=`<img class="hero-photo" src="${img("roses-video-1")}" alt="Tarta de 2 pisos con rosas silvestres">`;
+document.getElementById("heroCake").innerHTML=`<img class="hero-photo" src="${img("roses-original")}" alt="Tarta de 2 pisos con rosas silvestres">`;
 
 /* Filters — n'affiche que les catégories qui ont des modèles */
 document.querySelectorAll(".chip[data-filter]").forEach(c=>{const f=c.dataset.filter; if(f!=="all"&&!MODELS.some(m=>m.cat===f)) c.style.display="none"});
