@@ -601,6 +601,9 @@ const MODELS=[
   {cat:"layer", tag:"Favorita", title:"Vintage Cake Lazos & Corazón", desc:"Crema blanca, manga pastelera vintage, lazos de raso negros y corazón dorado. Elegante y muy tendencia.", photos:["noeuds-coeur-4","noeuds-coeur-2","noeuds-coeur-3","noeuds-coeur-boite"]},
   {cat:"layer", tag:"San Valentín", title:"Heart Cake «Ti Amo»", desc:"Tarta en forma de corazón, rosetones rojo pasión y mensaje personalizado.", photos:["ti-amo"]},
   {cat:"layer", tag:"Vintage", title:"Corazón Rosa con Lazo", desc:"Crema rosa, corazoncitos blancos y gran lazo de raso. Dulce y romántica.", photos:["rosa-lazo"]},
+  {cat:"layer", tag:"Vintage", title:"Vintage Cake Lila con Lazo", desc:"Crema blanca, rosetones vintage, lazos de raso lila y mensaje personalizado.", photos:["lila-lazo"]},
+  {cat:"layer", tag:"Golosa", title:"Drip Cake de Chocolate", desc:"Crema de chocolate, drip generoso, galletas y chocolatinas por encima.", cover:"choco-drip-1-c", photos:["choco-drip-1","choco-drip-2"]},
+  {cat:"layer", tag:"Golosa", title:"Corazón de Chocolate", desc:"Tarta corazón de chocolate con drip, rosetones de crema y chocolatinas.", cover:"choco-corazon-c", photos:["choco-corazon"]},
   {cat:"layer", tag:"Campestre", title:"Layer Cake Flores del Campo", desc:"Crema rosa empolvado, tallos de margaritas y corazoncitos de fondant.", cover:"flores-campo-1-c", photos:["flores-campo-1","flores-campo-2"]},
   {cat:"anniv", tag:"Cumpleaños", title:"Jardín Florido Happy Birthday", desc:"Flores de fondant hechas a mano, medallón de encaje y nombre personalizado.", photos:["anniv-fleurs"]},
   {cat:"anniv", tag:"Cumpleaños", title:"Happy Birthday Azul & Oro", desc:"Efecto marmolado azul, bordes rasgados, bolas brillantes rojas y doradas y topper «Happy Birthday».", photos:["anniv-azul-oro"]},
@@ -608,12 +611,16 @@ const MODELS=[
   {cat:"anniv", tag:"Number Cake", title:"Tarta Número Rosa", desc:"Su edad en relieve, cenefa de lacitos y margaritas de azúcar.", cover:"numero-rosa-c", photos:["numero-rosa"]},
   {cat:"anniv", tag:"Fútbol", title:"Tarta de Fútbol Personalizada", desc:"El escudo de su equipo, balón de fondant y su nombre. Ideal para los fans del fútbol.", photos:["futbol-1","futbol-2"]},
   {cat:"anniv", tag:"Fútbol", title:"Heart Cake de su Club", desc:"Tarta corazón con los colores y el escudo de su club, y mensaje personalizado.", photos:["mca-corazon"]},
+  {cat:"anniv", tag:"Temática", title:"Tarta Bandera Amazigh", desc:"Tu bandera o símbolo favorito en fondant, con decoración a juego.", cover:"amazigh-c", photos:["amazigh"]},
   {cat:"mariage", tag:"Cake Design", title:"Rosas Silvestres 2 pisos", desc:"Bordes rasgados efecto papel, rosas y hojas modeladas a mano.", photos:["roses-original","roses-video-2"]},
   {cat:"mariage", tag:"Boda · Pedida", title:"Corazón Blanco con Perlas", desc:"Crema blanca, flores en manga pastelera y perlas comestibles. Pura elegancia.", photos:["perlas"]},
   {cat:"mariage", tag:"Boda", title:"Tarta Cuadrada con Lirio", desc:"Dos pisos cuadrados, motivos gráficos en relieve y gran lirio atigrado de azúcar.", photos:["lirio-cuadrada"]},
-  {cat:"tartes", tag:"Más vendido", title:"Tartaletas de Limón y Merengue", desc:"Masa sablé, crema de limón y merengue flameado con soplete.", photos:["citron-meringue"]},
+  {cat:"mariage", tag:"Boda", title:"Tarta de Boda Flores Blancas", desc:"Dos pisos blancos, flores y hojas de azúcar en relieve. Delicada y elegante.", photos:["boda-flores"]},
+  {cat:"mariage", tag:"Cake Design", title:"Tarta Lila con Calas", desc:"Cobertura lila lisa y calas modeladas a mano en azúcar.", photos:["calas-lila"]},
+  {cat:"tartes", tag:"Más vendido", title:"Tartaletas de Limón y Merengue", desc:"Masa sablé, crema de limón y merengue flameado con soplete.", photos:["citron-1","citron-2","citron-3","citron-4","citron-5","citron-meringue"]},
   {cat:"tartes", tag:"Fruta fresca", title:"Tartaletas de Manzana", desc:"Masa sablé crujiente y finas láminas de manzana caramelizadas al horno.", photos:["tartaletas-manzana"]},
-  {cat:"tartes", tag:"Casera", title:"Tarta de Manzana", desc:"La clásica tarta de manzana: masa crujiente, crema suave y manzana dorada al horno.", cover:"tarta-manzana-c", photos:["tarta-manzana"]}
+  {cat:"tartes", tag:"Casera", title:"Tarta de Manzana", desc:"La clásica tarta de manzana: masa crujiente, crema suave y manzana dorada al horno.", cover:"tarta-manzana-c", photos:["tarta-manzana"]},
+  {cat:"tartes", tag:"Mini dulce", title:"Macarons Caseros", desc:"Tapas suaves y ganache de chocolate. Perfectos para mesas dulces y cajas regalo.", photos:["macaron"]}
 ];
 const img=n=>`img/${n}.jpg`;
 
@@ -680,7 +687,10 @@ document.getElementById("filters").addEventListener("click",e=>{
 
 /* ---------- Vidéos — fichiers dans le dossier video/ ---------- */
 const VIDEOS=[
-  {file:"creation-1", title:"Rosas Silvestres 2 pisos", desc:"Bordes rasgados, rosas y hojas modeladas a mano, desde todos los ángulos."}
+  {file:"creation-1", title:"Rosas Silvestres 2 pisos", desc:"Bordes rasgados, rosas y hojas modeladas a mano, desde todos los ángulos."},
+  {file:"creation-3", title:"Tarta de Boda Flores Blancas", desc:"Dos pisos blancos con flores y hojas de azúcar en relieve."},
+  {file:"creation-2", title:"Corazón Rosa con Lazo", desc:"Heart cake vintage rosa, corazoncitos blancos y gran lazo de raso."},
+  {file:"creation-4", title:"Heart Cake «Ti Amo»", desc:"Rosetones rojo pasión y mensaje personalizado."}
 ];
 const vgrid=document.getElementById("videoGrid");
 vgrid.innerHTML=VIDEOS.map((v,i)=>`<article class="vcard reveal">
