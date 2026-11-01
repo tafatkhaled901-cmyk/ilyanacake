@@ -598,16 +598,22 @@ const CONFIG = {
 /* ---------- Catalogue — photos dans le dossier img/ ----------
    cat : layer | anniv | mariage | tartes  — la 1re photo est la couverture */
 const MODELS=[
-  {cat:"layer", tag:"Favorita", title:"Vintage Cake Lazos & Corazón", desc:"Crema blanca, manga pastelera vintage, lazos de raso negros y corazón dorado. Elegante y muy tendencia.", photos:["noeuds-coeur-2","noeuds-coeur-3","noeuds-coeur-boite"]},
+  {cat:"layer", tag:"Favorita", title:"Vintage Cake Lazos & Corazón", desc:"Crema blanca, manga pastelera vintage, lazos de raso negros y corazón dorado. Elegante y muy tendencia.", photos:["noeuds-coeur-4","noeuds-coeur-2","noeuds-coeur-3","noeuds-coeur-boite"]},
   {cat:"layer", tag:"San Valentín", title:"Heart Cake «Ti Amo»", desc:"Tarta en forma de corazón, rosetones rojo pasión y mensaje personalizado.", photos:["ti-amo"]},
   {cat:"layer", tag:"Vintage", title:"Corazón Rosa con Lazo", desc:"Crema rosa, corazoncitos blancos y gran lazo de raso. Dulce y romántica.", photos:["rosa-lazo"]},
+  {cat:"layer", tag:"Campestre", title:"Layer Cake Flores del Campo", desc:"Crema rosa empolvado, tallos de margaritas y corazoncitos de fondant.", cover:"flores-campo-1-c", photos:["flores-campo-1","flores-campo-2"]},
   {cat:"anniv", tag:"Cumpleaños", title:"Jardín Florido Happy Birthday", desc:"Flores de fondant hechas a mano, medallón de encaje y nombre personalizado.", photos:["anniv-fleurs"]},
+  {cat:"anniv", tag:"Cumpleaños", title:"Happy Birthday Azul & Oro", desc:"Efecto marmolado azul, bordes rasgados, bolas brillantes rojas y doradas y topper «Happy Birthday».", photos:["anniv-azul-oro"]},
+  {cat:"anniv", tag:"Vintage", title:"Heart Cake Azul Happy Birthday", desc:"Tarta corazón vintage, crema y azul cielo, lazos de raso y placa personalizada.", photos:["heart-azul"]},
+  {cat:"anniv", tag:"Number Cake", title:"Tarta Número Rosa", desc:"Su edad en relieve, cenefa de lacitos y margaritas de azúcar.", cover:"numero-rosa-c", photos:["numero-rosa"]},
   {cat:"anniv", tag:"Fútbol", title:"Tarta de Fútbol Personalizada", desc:"El escudo de su equipo, balón de fondant y su nombre. Ideal para los fans del fútbol.", photos:["futbol-1","futbol-2"]},
   {cat:"anniv", tag:"Fútbol", title:"Heart Cake de su Club", desc:"Tarta corazón con los colores y el escudo de su club, y mensaje personalizado.", photos:["mca-corazon"]},
   {cat:"mariage", tag:"Cake Design", title:"Rosas Silvestres 2 pisos", desc:"Bordes rasgados efecto papel, rosas y hojas modeladas a mano.", photos:["roses-original","roses-video-2"]},
   {cat:"mariage", tag:"Boda · Pedida", title:"Corazón Blanco con Perlas", desc:"Crema blanca, flores en manga pastelera y perlas comestibles. Pura elegancia.", photos:["perlas"]},
+  {cat:"mariage", tag:"Boda", title:"Tarta Cuadrada con Lirio", desc:"Dos pisos cuadrados, motivos gráficos en relieve y gran lirio atigrado de azúcar.", photos:["lirio-cuadrada"]},
   {cat:"tartes", tag:"Más vendido", title:"Tartaletas de Limón y Merengue", desc:"Masa sablé, crema de limón y merengue flameado con soplete.", photos:["citron-meringue"]},
-  {cat:"tartes", tag:"Fruta fresca", title:"Tartaletas de Manzana", desc:"Masa sablé crujiente y finas láminas de manzana caramelizadas al horno.", photos:["tartaletas-manzana"]}
+  {cat:"tartes", tag:"Fruta fresca", title:"Tartaletas de Manzana", desc:"Masa sablé crujiente y finas láminas de manzana caramelizadas al horno.", photos:["tartaletas-manzana"]},
+  {cat:"tartes", tag:"Casera", title:"Tarta de Manzana", desc:"La clásica tarta de manzana: masa crujiente, crema suave y manzana dorada al horno.", cover:"tarta-manzana-c", photos:["tarta-manzana"]}
 ];
 const img=n=>`img/${n}.jpg`;
 
@@ -621,7 +627,7 @@ const grid=document.getElementById("grid");
 grid.innerHTML=MODELS.map((m,i)=>`<article class="card reveal" data-cat="${m.cat}">
     <div class="card-media" data-i="${i}" role="button" tabindex="0" aria-label="Ampliar ${m.title}">
       <span class="tag">${m.tag}</span>${m.photos.length>1?`<span class="count">📷 ${m.photos.length}</span>`:""}
-      <img class="photo" src="${img(m.photos[0])}" alt="${m.title}" loading="lazy">
+      <img class="photo" src="${img(m.cover||m.photos[0])}" alt="${m.title}" loading="lazy">
       <span class="quick">🔍 Ver en grande</span>
     </div>
     <div class="card-body">
