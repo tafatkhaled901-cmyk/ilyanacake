@@ -598,20 +598,9 @@ const CONFIG = {
 /* ---------- Catalogue — photos dans le dossier img/ ----------
    cat : layer | anniv | mariage | tartes  — la 1re photo est la couverture */
 const MODELS=[
-  {cat:"layer", tag:"Favorita", title:"Vintage Cake Lazos & Corazón", desc:"Crema blanca, manga pastelera vintage, lazos de raso negros y corazón dorado. Elegante y muy tendencia.", photos:["noeuds-coeur-1","noeuds-coeur-2","noeuds-coeur-3","noeuds-coeur-boite"]},
-  {cat:"layer", tag:"San Valentín", title:"Heart Cake «Ti Amo»", desc:"Tarta en forma de corazón, decoración rojo pasión y mensaje personalizado.", photos:["ti-amo"]},
-  {cat:"layer", tag:"Golosa", title:"Corazón de Chocolate & Galletas", desc:"Crema de chocolate, drip fundente, rosetones y galletas crujientes.", photos:["choco-coeur"]},
-  {cat:"layer", tag:"Golosa", title:"Drip Cake de Chocolate", desc:"Gran layer cake de chocolate, cobertura generosa y galletas golosas por encima.", photos:["choco-drip"]},
-  {cat:"layer", tag:"Campestre", title:"Layer Cake Flores del Campo", desc:"Crema rosa empolvado, tallos de margaritas y corazoncitos de azúcar.", photos:["fleurs-champetre"]},
-  {cat:"anniv", tag:"Cumpleaños", title:"Happy Birthday Azul & Oro", desc:"Efecto marmolado azul, bolas brillantes rojas y doradas, topper «Happy Birthday».", photos:["anniv-bleu"]},
+  {cat:"layer", tag:"Favorita", title:"Vintage Cake Lazos & Corazón", desc:"Crema blanca, manga pastelera vintage, lazos de raso negros y corazón dorado. Elegante y muy tendencia.", photos:["noeuds-coeur-2","noeuds-coeur-3","noeuds-coeur-boite"]},
   {cat:"anniv", tag:"Cumpleaños", title:"Jardín Florido Happy Birthday", desc:"Flores de fondant hechas a mano, medallón de encaje y nombre personalizado.", photos:["anniv-fleurs"]},
-  {cat:"anniv", tag:"Number Cake", title:"Tarta Número Rosa Empolvado", desc:"Tu edad en relieve, cenefa de lacitos y margaritas de azúcar.", photos:["anniv-11"]},
-  {cat:"mariage", tag:"Cake Design", title:"Rosas Silvestres 2 pisos", desc:"Bordes rasgados efecto papel, rosas y hojas modeladas a mano.", photos:["roses-2-etages"]},
-  {cat:"mariage", tag:"Boda", title:"Tarta Cuadrada con Lirio", desc:"Dos pisos cuadrados, motivos gráficos en relieve y gran lirio atigrado de azúcar.", photos:["lys-carre"]},
-  {cat:"mariage", tag:"Boda · Bautizo", title:"Encaje Blanco Floral", desc:"Flores blancas en relieve, perlas y acabado marfil para tus grandes días.", photos:["dentelle-blanc"]},
-  {cat:"tartes", tag:"Más vendido", title:"Tartaletas de Limón y Merengue", desc:"Masa sablé, crema de limón ácida y merengue flameado con soplete.", photos:["citron-1","citron-2","citron-3"]},
-  {cat:"tartes", tag:"Fruta fresca", title:"Tartaletas de Fresa", desc:"Sablé crujiente, crema de fresa untuosa y fresas frescas.", photos:["fraise-tartes"]},
-  {cat:"tartes", tag:"Mini dulce", title:"Macarons Caseros", desc:"Tapas suaves, ganache de chocolate. Perfectos para mesas dulces y cajas regalo.", photos:["macaron"]}
+  {cat:"mariage", tag:"Cake Design", title:"Rosas Silvestres 2 pisos", desc:"Bordes rasgados efecto papel, rosas y hojas modeladas a mano.", photos:["roses-video-1","roses-video-2"]}
 ];
 const img=n=>`img/${n}.jpg`;
 
@@ -660,8 +649,10 @@ let tx=null; lb.addEventListener("touchstart",e=>tx=e.touches[0].clientX,{passiv
 lb.addEventListener("touchend",e=>{if(tx===null)return; const dx=e.changedTouches[0].clientX-tx; if(Math.abs(dx)>45) step(dx<0?1:-1); tx=null});
 
 /* Hero */
-document.getElementById("heroCake").innerHTML=`<img class="hero-photo" src="${img("roses-2-etages")}" alt="Tarta de 2 pisos con rosas silvestres">`;
+document.getElementById("heroCake").innerHTML=`<img class="hero-photo" src="${img("roses-video-1")}" alt="Tarta de 2 pisos con rosas silvestres">`;
 
+/* Filters — n'affiche que les catégories qui ont des modèles */
+document.querySelectorAll(".chip[data-filter]").forEach(c=>{const f=c.dataset.filter; if(f!=="all"&&!MODELS.some(m=>m.cat===f)) c.style.display="none"});
 /* Filters */
 document.getElementById("filters").addEventListener("click",e=>{
   const b=e.target.closest(".chip"); if(!b) return;
